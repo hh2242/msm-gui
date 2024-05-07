@@ -14,4 +14,39 @@ class ActorsController < ApplicationController
       
     render({ :template => "actor_templates/show" })
   end
+
+  def insert_actor
+    name = params[:query_name]
+    dob = params[:query_dob]
+    bio = params[:query_bio]
+    image = params[:query_image]
+
+    @actor = Actor.new(name: name, dob: dob, bio: bio, image: image)
+
+    if @actor.save
+      redirect_to("/actors")
+    else
+      render :new
+    end
+  end
+
+  def modify_actor
+    id = params[:id]
+    name = params[:query_name]
+    dob = params[:query_dob]
+    bio = params[:query_bio]
+    image = params[:query_image]
+
+    @actor = Actor.find(id.to_i)
+    @actor.name = name
+    @actor.dob = dob
+    @actor.bio = bio
+    @actor.image = image
+
+    if @actor.save
+      redirect_to("/actors/" + id)
+    else
+      render :new
+    end
+  end
 end
