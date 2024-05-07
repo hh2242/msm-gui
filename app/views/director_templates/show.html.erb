@@ -6,6 +6,50 @@
   Go back
 </a>
 
+<div>
+  <a href="/delete_director/<%= @the_director.id %>">
+    Delete director
+  </a>
+</div>
+
+<form action="/modify_director/<%= @the_director.id %>" method="post">
+  <div>
+    <label for="name_box">
+      Name
+    </label>
+
+    <input type="text" id="name_box" name="query_name" value="Frank Darabont">
+  </div>
+
+  <div>
+    <label for="dob_box">
+      Dob
+    </label>
+
+    <input type="date" id="dob_box" name="query_dob" value="1959-01-28">
+  </div>
+
+  <div>
+    <label for="bio_box">
+      Bio
+    </label>
+
+    <textarea id="bio_box" name="query_bio" rows="3">Frank Darabont (born January 28, 1959) is a Hungarian-American film director, screenwriter and producer who has been nominated for three Academy Awards and a Golden Globe. He was born in France by Hungarian parents who fled Budapest during the 1956 uprising, but the family moved to Los Angeles while he was still an infant. He has directed the films The Shawshank Redemption, The Green Mile, and The Mist, all based on stories by Stephen King. In 2010 he developed and executive produced the first season of the AMC network television series The Walking Dead. Description above from the Wikipedia article Frank Darabont, licensed under CC-BY-SA, full list of contributors on Wikipedia.</textarea>
+  </div>
+
+  <div>
+    <label for="image_box">
+      Image
+    </label>
+
+    <input type="text" id="image_box" name="query_image" value="<%= @the_director.image %>">
+  </div>
+
+  <button>
+    Update director
+  </button>
+</form>
+
 <hr>
 
 <dl>
